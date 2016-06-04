@@ -8,5 +8,8 @@ version = "0.1.42"
 name = "hello"
 path = "src/main.rs"
 
+[dependencies]
+postgres = "*"
+
 [build-dependencies]
 rustc_version = "0.1.7"

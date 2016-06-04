@@ -31,6 +31,9 @@ environment:
     # - TARGET: x86_64-pc-windows-msvc
     #   CHANNEL: nightly
 
+services:
+  - postgresql
+
 # Install Rust and Cargo
 # (Based on from https://github.com/rust-lang/libc/blob/master/appveyor.yml)
 install:

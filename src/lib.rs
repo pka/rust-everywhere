@@ -3,3 +3,8 @@
 //!
 //! assert!(true);
 //! ```
+
+extern crate postgres;
+
+pub mod build_info;
+pub mod pgtest;

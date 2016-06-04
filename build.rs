@@ -6,10 +6,10 @@ use std::env;
 use std::fs::File;
 use std::io::Write;
 
-fn hello() -> String {
+fn build_info() -> String {
     let meta = rustc_version::version_meta();
 
-    format!("fn main() {{ println!(\"{}: {} says hello!\nCompiled with rust-{} ({:?} channel)\") }}\n#[test] fn ok() {{ assert!(true) }}",
+    format!("pub const BUILD_INFO: &'static str = {{ \"{}: {} - Compiled with rust-{} ({:?} channel)\" }};",
             env::var("CARGO_PKG_VERSION").unwrap(),
             env::var("TARGET").unwrap(),
             meta.semver,
@@ -17,5 +17,5 @@ fn hello() -> String {
 }
 
 fn main() {
-    File::create("src/main.rs").unwrap().write_all(hello().as_bytes()).unwrap();
+    File::create("src/build_info.rs").unwrap().write_all(build_info().as_bytes()).unwrap();
 }

@@ -151,7 +151,11 @@ matrix:
       rust: beta
       env: TARGET=i686-unknown-linux-musl
 
+services:
+  - postgresql
+
 before_install:
+  - psql -c 'create database travis_ci_test;' -U postgres
   - export PATH="$PATH:$HOME/.cargo/bin"
 
 install:
